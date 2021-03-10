@@ -35,18 +35,16 @@ function Table(props) {
     } = useTable({ columns, data })
 
     return (
-        <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+        <table {...getTableProps()} style={{ border: 'solid 1px black' }}>
             <thead>
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
                             <th
                                 {...column.getHeaderProps()}
-                                style={{
-                                    borderBottom: 'solid 3px red',
-                                    background: 'aliceblue',
+                                style={{                                    
                                     color: 'black',
-                                    fontWeight: 'bold',
+                                    fontWeight: 'bold'
                                 }}
                             >
                                 {column.render('Header')}
@@ -66,8 +64,7 @@ function Table(props) {
                                         {...cell.getCellProps()}
                                         style={{
                                             padding: '10px',
-                                            border: 'solid 1px gray',
-                                            background: 'papayawhip',
+                                            border: 'solid 1px gray'
                                         }}
                                     >
                                         {cell.render('Cell')}
