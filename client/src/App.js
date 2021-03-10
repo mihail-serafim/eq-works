@@ -1,8 +1,8 @@
 import React from 'react';
-//import Table from './Components/Table'
+import Table from './Components/Table'
 //import { Graph } from './Components/Graph';
 //import { Map } from './Components/Map';
-import { updateData } from './endpoints'
+import { updateData, updateCols } from './endpoints'
 
 
 class App extends React.Component {
@@ -11,19 +11,25 @@ class App extends React.Component {
 
         this.state = {
             selection: '/stats/daily',
-            data: ''
+            data: '',
+            column: updateCols('/stats/daily')
         }
     }
 
     handleSelection = async (e) => {
+        
         var sel = e.target.value
+
         var results = await updateData(sel)
 
         console.log('new')
         console.log(sel)
         console.log(results)
 
-        this.setState({ selection: sel, data: results })
+        const cols = updateCols(sel)
+        console.log('WORKING!!!!!!')
+        this.setState({ selection: sel, data: results, column: cols })
+        console.log('WORKING2!!!!!!')
 
     }
 
@@ -31,7 +37,7 @@ class App extends React.Component {
         return (
             <div>
                 <select
-                    value={this.state.selection}
+                    
                     onChange={this.handleSelection}
                 >
                     <option value="/stats/daily">Stats: Daily</option>
@@ -44,7 +50,11 @@ class App extends React.Component {
 
                 <div>
                     <h1 id='title'>React Dynamic Table</h1>
-                    
+                    <Table
+                        selection={this.state.selection}
+                        data={this.state.data}
+                        column={this.state.column}
+                    />
                 </div>
             </div>
 

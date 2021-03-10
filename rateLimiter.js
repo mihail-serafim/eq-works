@@ -14,7 +14,7 @@ redisClient.on("error", function (error) {
 const rateLimiter = (req, res, next) => {
     const ip = req.ip
     const EXP_TIME = 60 // expiry time, in seconds
-    const MAX_REQ = 10 // maximum # of requests
+    const MAX_REQ = 60 // maximum # of requests
     // the max rate is MAX_REQ requests per EXP_TIME seconds 
 
     // add ip to redis and keep track of # of requests
