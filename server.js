@@ -84,12 +84,12 @@ app.get('/poi', (req, res, next) => {
     return next()
 }, queryHandler)
 
-app.listen(process.env.PORT || 5000, (err) => {
+app.listen(process.env.PORT || 6000, (err) => {
     if (err) {
         console.error(err)
         process.exit(1)
     } else {
-        console.log(`Running on ${process.env.PORT || 5000}`)
+        console.log(`Running on ${process.env.PORT || 6000}`)
     }
 })
 
