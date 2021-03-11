@@ -16,7 +16,7 @@ const queryHandler = (req, res, next) => {
 }
 
 // use the rateLimiter middleware for all http methods
-app.use(rateLimiter)
+//app.use(rateLimiter)
 
 //app.get('/', (req, res) => {
 //    res.sendFile(path.resolve('src/index.html'))
